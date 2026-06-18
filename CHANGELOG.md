@@ -7,3 +7,5 @@
 - 안전장치 선적용: 고정바 div, 100svh, blur 없음, rAF+passive 스크롤, 모바일 리빌 off, 푸터 ©2026.
 - 이미지: Unsplash flower-bouquet 실로드 ID 8종(갤러리)+About+Order. 지도는 플레이스홀더(길찾기 버튼 연결).
 - 미설정(납품 전): Formspree action ID, 실제 사진·연락처·주소·지도 좌표.
+- **한국어 줄바꿈 교정:** body에 `word-break:keep-all`(+`overflow-wrap:break-word`) — 단어가 줄 중간에 쪼개지지 않고 어절 단위로만 줄바꿈.
+- **배포 완료(2026-06-18):** GitHub `Daorl8/flower-studio-sample`(웹 업로드) → Cloudflare Workers `flower-studio-sample.lgt3232.workers.dev`. 검증: 히어로·갤러리 렌더 OK, `/.git/config` 404, Linktree 4번째 링크 등록. (실폰 모바일 점검은 미실시)
