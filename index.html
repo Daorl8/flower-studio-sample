@@ -93,7 +93,7 @@ h1,h2,h3{font-weight:500;line-height:1.12;letter-spacing:.01em}
 
 /* ---------- 리빌(데스크탑 전용, JS가 .in 부여) ---------- */
 @media (min-width:861px){
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .45s ease,transform .45s ease}
   .reveal.in{opacity:1;transform:none}
 }
 
@@ -264,7 +264,7 @@ h1,h2,h3{font-weight:500;line-height:1.12;letter-spacing:.01em}
       <figure class="gallery__item g7" data-full="https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?auto=format&fit=crop&w=1600&q=80"><img src="https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?auto=format&fit=crop&w=900&q=80" alt="부케" loading="lazy"></figure>
       <figure class="gallery__item g8" data-full="https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=1600&q=80"><img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=900&q=80" alt="화병 연출" loading="lazy"></figure>
     </div>
-    <div class="gallery__cap"><span>Seasonal bouquets · arrangements · centerpieces</span><span>탭하면 크게 보여요</span></div>
+    <div class="gallery__cap"><span>Seasonal bouquets · arrangements · centerpieces</span><span>이미지를 누르면 크게 보여요</span></div>
   </section>
 
   <!-- ===== 02 ABOUT ===== -->
@@ -479,6 +479,14 @@ h1,h2,h3{font-weight:500;line-height:1.12;letter-spacing:.01em}
         .finally(reset);
     });
   });
+})();
+</script>
+<script>
+/* reveal 안전장치: 화면 내 요소 강제 노출(숨김/백그라운드 탭 대비, 스크롤 효과 유지) */
+(function(){
+  function rv(){var els=document.querySelectorAll('.reveal:not(.in)');for(var i=0;i<els.length;i++){var r=els[i].getBoundingClientRect();if(r.top<innerHeight*0.92&&r.bottom>0)els[i].classList.add('in');}}
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(rv,60);});
+  window.addEventListener('load',function(){setTimeout(rv,1200);});
 })();
 </script>
 </body>
