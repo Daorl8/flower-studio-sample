@@ -228,7 +228,7 @@ h1,h2,h3{font-weight:500;line-height:1.12;letter-spacing:.01em}
 <!-- 모바일 상단 바 -->
 <header class="topbar">
   <a class="topbar__brand serif" href="#hero">FLEUR DE SAISON</a>
-  <button class="topbar__menu" aria-label="메뉴">메뉴</button>
+  <button class="topbar__menu" aria-label="메뉴" aria-expanded="false">메뉴</button>
 </header>
 
 <main class="wrap">
@@ -431,9 +431,9 @@ h1,h2,h3{font-weight:500;line-height:1.12;letter-spacing:.01em}
   // 모바일 메뉴 토글 (사이드내비 재사용)
   var sidenav=document.querySelector('.sidenav');
   var menuBtn=document.querySelector('.topbar__menu');
-  if(menuBtn){ menuBtn.addEventListener('click',function(){ sidenav.classList.toggle('open'); }); }
+  if(menuBtn){ menuBtn.addEventListener('click',function(){ menuBtn.setAttribute('aria-expanded', sidenav.classList.toggle('open')); }); }
   document.querySelectorAll('.sidenav a').forEach(function(a){
-    a.addEventListener('click',function(){ sidenav.classList.remove('open'); });
+    a.addEventListener('click',function(){ sidenav.classList.remove('open'); if(menuBtn)menuBtn.setAttribute('aria-expanded','false'); });
   });
 
   // 라이트박스
